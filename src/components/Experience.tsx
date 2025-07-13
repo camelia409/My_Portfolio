@@ -8,6 +8,15 @@ const Experience = () => {
   const experiences = [
     {
       title: 'Job Simulation Trainee',
+      company: 'British Airways (Forage)',
+      period: 'July 2025',
+      location: 'Remote',
+      description: 'Scraped and analysed customer review data to uncover findings and built a predictive model to understand factors that influence buying behaviour.',
+      skills: ['Data Science', 'Predictive Modeling', 'Data Analysis', 'Python'],
+      type: 'Job Simulation'
+    },
+    {
+      title: 'Job Simulation Trainee',
       company: 'Deloitte Australia (Forage)',
       period: 'Jun 2025',
       location: 'Remote',
