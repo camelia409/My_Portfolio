@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Award, Calendar } from 'lucide-react';
 
 const Certifications = () => {
@@ -6,6 +6,13 @@ const Certifications = () => {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const certifications = [
+    {
+      title: 'Neural Networks and Deep Learning',
+      issuer: 'DeepLearning.AI',
+      date: 'Sep 2025',
+      description: 'Comprehensive certification covering neural network fundamentals, deep learning architectures, forward and backpropagation, and building deep neural networks from scratch.',
+      gradient: 'from-red-500 to-orange-500'
+    },
     {
       title: 'IBM Professional Data Science',
       issuer: 'IBM',

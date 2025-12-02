@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Github, Brain, TrendingUp, Rocket, Home, DollarSign, Users } from 'lucide-react';
+import { Github, Brain, TrendingUp, Rocket, DollarSign, Users } from 'lucide-react';
 
 const Projects = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
@@ -7,45 +7,45 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'CompanionAI',
-      description: 'AI-powered healthcare companion with advanced NLP and emotion analysis capabilities for personalized health monitoring and intelligent conversation.',
+      title: 'AI-Powered Geospatial Crisis Monitoring Dashboard',
+      description: 'Real-time crisis monitoring system using Next.js, Mapbox, NLP, and ML to analyze and visualize geospatial data for emergency response and disaster management.',
       icon: <Brain className="w-8 h-8" />,
-      tech: ['Python', 'TensorFlow', 'NLP', 'Emotion Analysis', 'Healthcare AI'],
+      tech: ['Next.js', 'Mapbox', 'NLP', 'Machine Learning', 'Geospatial Analytics'],
       gradient: 'from-cyan-500 to-blue-500'
+    },
+    {
+      title: 'GerontoVoice – Voice-First AI Simulator',
+      description: 'Advanced voice-first AI simulator for geriatric care using React, FastAPI, Mistral, RAG, and LoRA fine-tuning for personalized healthcare interactions.',
+      icon: <Users className="w-8 h-8" />,
+      tech: ['React', 'FastAPI', 'Mistral', 'RAG', 'LoRA', 'Voice AI'],
+      gradient: 'from-purple-500 to-pink-500'
+    },
+    {
+      title: 'HealMate AI – Empathetic Health Assistant',
+      description: 'Intelligent health assistant built with FastAPI, NLP, and integrated APIs to provide empathetic, personalized healthcare guidance and support.',
+      icon: <Brain className="w-8 h-8" />,
+      tech: ['FastAPI', 'NLP', 'APIs', 'Healthcare AI', 'Python'],
+      gradient: 'from-green-500 to-teal-500'
     },
     {
       title: 'Tesla Stock Prediction',
       description: 'Advanced time-series machine learning model for Tesla stock price prediction using historical data and market sentiment analysis.',
       icon: <TrendingUp className="w-8 h-8" />,
       tech: ['Python', 'Time Series', 'Machine Learning', 'Financial Analysis', 'LSTM'],
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'from-orange-500 to-red-500'
     },
     {
       title: 'Falcon 9 Landing Prediction',
       description: 'Machine learning model to predict SpaceX Falcon 9 first stage landing success using historical launch data and mission parameters.',
       icon: <Rocket className="w-8 h-8" />,
       tech: ['Python', 'Machine Learning', 'Data Analysis', 'Classification', 'SpaceX API'],
-      gradient: 'from-green-500 to-teal-500'
+      gradient: 'from-indigo-500 to-purple-500'
     },
     {
       title: 'Loan Repayment Prediction',
       description: 'Intelligent system to forecast loan repayment probabilities using machine learning algorithms and risk assessment models.',
       icon: <DollarSign className="w-8 h-8" />,
       tech: ['Python', 'Classification', 'Risk Assessment', 'Financial ML', 'Credit Scoring'],
-      gradient: 'from-orange-500 to-red-500'
-    },
-    {
-      title: 'Housing Price Prediction',
-      description: 'Comprehensive ML models for property price prediction using multiple regression techniques and feature engineering.',
-      icon: <Home className="w-8 h-8" />,
-      tech: ['Python', 'Regression Analysis', 'Feature Engineering', 'Real Estate', 'Pandas'],
-      gradient: 'from-indigo-500 to-purple-500'
-    },
-    {
-      title: 'Personalized Budget Planner Multi-Agent AI System',
-      description: 'Full-stack budgeting assistant using chained AI agents for personalized financial planning and expense management.',
-      icon: <Users className="w-8 h-8" />,
-      tech: ['Python', 'Multi-Agent AI', 'Full Stack', 'Financial Planning', 'Vue.js'],
       gradient: 'from-yellow-500 to-orange-500'
     }
   ];

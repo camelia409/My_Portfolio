@@ -6,7 +6,7 @@ const Footer = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/ProfessionalResume.pdf';
+    link.href = '/ProffesionalResume.pdf';
     link.download = 'Abinandida_R_Resume.pdf';
     link.click();
   };
@@ -61,7 +61,6 @@ const Footer = () => {
                   { name: 'Projects', href: '#projects' },
                   { name: 'Skills', href: '#skills' },
                   { name: 'Certifications', href: '#certifications' },
-                  { name: 'Blogs', href: '#blogs' },
                   { name: 'Contact', href: '#contact' }
                 ].map((link) => (
                   <button

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Database, Code, Cloud, Github, Linkedin } from 'lucide-react';
+import { Brain, Database, Code, Cloud, Github, Linkedin, Users, Award, Activity } from 'lucide-react';
 
 const About = () => {
   const highlights = [
@@ -26,9 +26,15 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-slate-800/50">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-20 bg-slate-800/50 relative overflow-hidden">
+      {/* Subtle AI Background Animation */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-cyan-500/30 to-transparent rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-l from-purple-500/30 to-transparent rounded-full blur-3xl animate-float"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
@@ -38,43 +44,34 @@ const About = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mb-8"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Left Column - Text Content */}
+            <div className="space-y-6 lg:pr-8">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I am a final-year AI & Data Science student passionate about crafting scalable solutions 
-                through machine learning, full-stack development, and cloud computing. I thrive on solving 
-                complex challenges and collaborating on innovative projects.
+                AI & Data Science enthusiast with experience in building ML-powered systems from concept to delivery. 
+                Skilled in Rapid Prototyping, RAG systems, Linux automation, and scalable backend development. 
+                Strong leadership skills gained through mentoring interns and coordinating tech teams. Focused on 
+                innovation and solving real-world challenges through responsible, secure, and data-driven AI.
               </p>
               
               <p className="text-lg text-gray-300 leading-relaxed">
                 Currently pursuing my B.Tech in Artificial Intelligence and Data Science at Anna University, 
-                Coimbatore, I have gained hands-on experience through internships at leading companies like 
-                Deloitte, Infosys, and Intrnforte. My expertise spans across Python, machine learning frameworks, 
-                and modern web technologies.
+                Coimbatore, I have gained hands-on experience through <strong className="text-cyan-400 font-semibold">internships</strong> at 
+                Infosys Springboard, Intrnforte, and AURCC, where I developed ML models, data science solutions, 
+                and web applications. Additionally, I've completed <strong className="text-purple-400 font-semibold">job simulations</strong> 
+                at British Airways and Deloitte Australia (via Forage), gaining exposure to industry-standard practices 
+                in data analysis, predictive modeling, and forensic analytics.
               </p>
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                I believe in the transformative power of AI and data-driven solutions to create meaningful 
-                impact across industries. My goal is to contribute to cutting-edge projects that push the 
-                boundaries of what's possible with artificial intelligence.
+                My expertise spans across Python, JavaScript, SQL, machine learning frameworks (Scikit-learn, 
+                TensorFlow, PyTorch), and modern web technologies. At Infosys Springboard, I led a team of 25+ 
+                interns in building a time-series ML model for stock prediction, demonstrating both technical 
+                prowess and leadership capabilities. I believe in the transformative power of AI to create 
+                meaningful impact across industries through secure, scalable solutions.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <span className="px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-lg border border-cyan-500/30">
-                  Python
-                </span>
-                <span className="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg border border-purple-500/30">
-                  Machine Learning
-                </span>
-                <span className="px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg border border-pink-500/30">
-                  Data Science
-                </span>
-                <span className="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg border border-blue-500/30">
-                  Full Stack
-                </span>
-              </div>
-
-              <div className="flex items-center space-x-6 pt-6">
+              <div className="flex items-center space-x-6 pt-4">
                 <a
                   href="https://github.com/camelia409"
                   target="_blank"
@@ -96,6 +93,7 @@ const About = () => {
               </div>
             </div>
 
+            {/* Right Column - Skill Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {highlights.map((item, index) => (
                 <div
@@ -104,9 +102,41 @@ const About = () => {
                 >
                   <div className="text-cyan-400 mb-4">{item.icon}</div>
                   <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-400 text-sm">{item.description}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Extracurricular Activities */}
+          <div className="mt-20">
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">
+              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                Extracurricular Activities
+              </span>
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <div className="bg-slate-700/50 p-6 rounded-xl border border-slate-600/50 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105">
+                <div className="text-cyan-400 mb-4">
+                  <Users className="w-8 h-8" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">DGATE Cell Member</h4>
+                <p className="text-gray-400 text-sm">Active member of the DGATE cell, contributing to college initiatives and technical activities.</p>
+              </div>
+              <div className="bg-slate-700/50 p-6 rounded-xl border border-slate-600/50 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105">
+                <div className="text-cyan-400 mb-4">
+                  <Award className="w-8 h-8" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">College Chess Team Captain</h4>
+                <p className="text-gray-400 text-sm">Leading the college chess team, demonstrating strategic thinking and leadership skills.</p>
+              </div>
+              <div className="bg-slate-700/50 p-6 rounded-xl border border-slate-600/50 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105">
+                <div className="text-cyan-400 mb-4">
+                  <Activity className="w-8 h-8" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">District-Level Athlete</h4>
+                <p className="text-gray-400 text-sm">Competing at district level in short sprint events, showcasing dedication and discipline.</p>
+              </div>
             </div>
           </div>
         </div>

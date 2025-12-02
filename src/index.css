@@ -1,3 +1,131 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Cursor - Hide default on desktop */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+  
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    cursor: none !important;
+  }
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed header */
+}
+
+/* Scroll Snap Configuration */
+@supports (scroll-snap-type: y mandatory) {
+  main {
+    scroll-snap-type: y proximity;
+  }
+  
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00d9ff, #a855f7);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00b8d4, #9333ea);
+}
+
+/* Smooth Fade-in Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Story-driven Section Transitions */
+.section-transition {
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-transition[data-visible="false"] {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.section-transition[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Anime-style Sparkle Animation */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 0.6s ease-out;
+}
+
+/* Parallax Container */
+.parallax-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.parallax-layer {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Energy Line Animation */
+@keyframes energy-line {
+  0% {
+    transform: translateX(-100%) scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) scaleX(1);
+    opacity: 0;
+  }
+}
+
+.animate-energy-line {
+  animation: energy-line 1.5s ease-out;
+}

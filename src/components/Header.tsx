@@ -18,8 +18,8 @@ const Header = () => {
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
     { href: '#skills', label: 'Skills' },
+    { href: '#achievements', label: 'Achievements' },
     { href: '#certifications', label: 'Certifications' },
-    { href: '#blogs', label: 'Blogs' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -31,7 +31,7 @@ const Header = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/ProfessionalResume.pdf';
+    link.href = '/ProffesionalResume.pdf';
     link.download = 'Abinandida_R_Resume.pdf';
     link.click();
   };

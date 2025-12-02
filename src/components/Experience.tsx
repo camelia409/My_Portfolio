@@ -7,7 +7,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Job Simulation Trainee',
+      title: 'Data Science Simulation',
       company: 'British Airways (Forage)',
       period: 'July 2025',
       location: 'Remote',
@@ -16,16 +16,16 @@ const Experience = () => {
       type: 'Job Simulation'
     },
     {
-      title: 'Job Simulation Trainee',
+      title: 'Analytics Simulation',
       company: 'Deloitte Australia (Forage)',
-      period: 'Jun 2025',
+      period: 'June 2025',
       location: 'Remote',
       description: 'Created a Tableau dashboard for forensic data analysis and used Excel to classify anomalies for stakeholders.',
       skills: ['Tableau', 'Excel', 'Data Analysis', 'Forensic Analytics'],
       type: 'Job Simulation'
     },
     {
-      title: 'ML Project Intern',
+      title: 'ML Intern',
       company: 'Infosys Springboard',
       period: 'Nov 2024 - Jan 2025',
       location: 'Remote',
@@ -36,20 +36,20 @@ const Experience = () => {
     {
       title: 'Data Science Intern',
       company: 'Intrnforte',
-      period: 'Sep 2024 - Nov 2024',
+      period: 'Sept - Nov 2024',
       location: 'Remote',
       description: 'Designed models for housing price and loan repayment prediction.',
       skills: ['Data Science', 'Predictive Modeling', 'Python', 'Machine Learning'],
       type: 'Internship'
     },
     {
-      title: 'Web Developer',
-      company: 'Anna University Regional Campus',
-      period: 'Aug 2024 - Sep 2024',
+      title: 'Web Developer Intern',
+      company: 'AURCC',
+      period: 'Aug - Sept 2024',
       location: 'Coimbatore, India',
       description: 'Built a website with Vue.js and Tailwind CSS, enhancing UI/UX, performance, and accessibility.',
       skills: ['Vue.js', 'Tailwind CSS', 'UI/UX', 'Web Development'],
-      type: 'Project'
+      type: 'Internship'
     }
   ];
 

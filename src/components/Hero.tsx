@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, ChevronDown, Download, Eye, MessageSquare } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Github, Linkedin, Mail, ChevronDown, Download, Eye, MessageSquare, Briefcase, Code, Trophy, Award, Layers } from 'lucide-react';
+import NeuralNetwork from './AIAnimations/NeuralNetwork';
+import DataFlow from './AIAnimations/DataFlow';
+import StatBadge from './StatBadge';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -29,10 +32,13 @@ const Hero = () => {
     document.querySelector(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleViewResume = () => {
+    window.open('/ProffesionalResume.pdf', '_blank');
+  };
+
   const handleDownloadCV = () => {
-    // This would generate a PDF from resume data
     const link = document.createElement('a');
-    link.href = '/ProfessionalResume.pdf';
+    link.href = '/ProffesionalResume.pdf';
     link.download = 'Abinandida_R_Resume.pdf';
     link.click();
   };
@@ -42,32 +48,66 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden parallax-container">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"></div>
         
-        {/* Particle Animation */}
-        <div className="absolute inset-0">
-          {[...Array(100)].map((_, i) => (
+        {/* Anime-style Grid Background */}
+        <div className="absolute inset-0 opacity-20 parallax-layer" style={{
+          backgroundImage: `
+            linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px',
+          transform: 'translateZ(-1px) scale(1.1)'
+        }}></div>
+        
+        {/* Neural Network Animation */}
+        <NeuralNetwork nodeCount={40} connectionCount={60} />
+        
+        {/* Data Flow Particles */}
+        <DataFlow particleCount={80} />
+
+        {/* Enhanced Gradient Waves - Parallax Layers */}
+        <div className="absolute inset-0 opacity-40 parallax-layer">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-cyan-500/30 to-purple-500/30 animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-cyan-400/10 via-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        </div>
+
+        {/* Floating Spark Particles */}
+        <div className="absolute inset-0 parallax-layer">
+          {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse opacity-70"
+              className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60 animate-float-particle"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 2}s`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${4 + Math.random() * 3}s`,
+                transform: 'translateZ(-2px)'
               }}
             />
           ))}
         </div>
 
-        {/* Gradient Waves */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 animate-pulse"></div>
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-bounce"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {[...Array(150)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-70 animate-float-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${3 + Math.random() * 4}s`,
+              }}
+            />
+          ))}
         </div>
       </div>
 
@@ -76,15 +116,23 @@ const Hero = () => {
           {/* Profile Image Section */}
           <div className="flex-shrink-0 mb-8 md:mb-0">
             <div className="flex justify-center">
-              <div className="relative">
-                <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-gradient-to-r from-cyan-400 to-purple-400 shadow-2xl">
+              <div className="relative group">
+                {/* Animated Ring */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 opacity-75 animate-spin-slow" style={{ width: '280px', height: '280px', margin: '-8px' }}></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 opacity-50 animate-spin-reverse-slow" style={{ width: '280px', height: '280px', margin: '-8px' }}></div>
+                
+                <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gradient-to-r from-cyan-400 to-purple-400 shadow-2xl ring-4 ring-cyan-400/50 group-hover:ring-purple-400/50 transition-all duration-300">
                   <img
                     src="/me.jpg"
                     alt="Abinandida R"
-                    className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 to-purple-400/20 animate-pulse"></div>
                 </div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 to-purple-400/20 animate-pulse"></div>
+                
+                {/* Floating Orbs */}
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full blur-xl opacity-60 animate-float-orbit"></div>
+                <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-xl opacity-60 animate-float-orbit-reverse"></div>
               </div>
             </div>
           </div>
@@ -111,9 +159,49 @@ const Hero = () => {
               📍 Coimbatore, India
             </p>
 
+            {/* RPG-style Stat Badges */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-8 sm:mb-12 w-full max-w-4xl">
+              <StatBadge
+                label="Internships"
+                value="5+"
+                icon={<Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />}
+                gradient="from-blue-500 to-cyan-500"
+                delay={0}
+              />
+              <StatBadge
+                label="AI Projects"
+                value="5+"
+                icon={<Code className="w-4 h-4 sm:w-5 sm:h-5" />}
+                gradient="from-cyan-500 to-purple-500"
+                delay={100}
+              />
+              <StatBadge
+                label="Hackathons"
+                value="4+"
+                icon={<Trophy className="w-4 h-4 sm:w-5 sm:h-5" />}
+                gradient="from-purple-500 to-pink-500"
+                delay={200}
+              />
+              <StatBadge
+                label="Certifications"
+                value="8+"
+                icon={<Award className="w-4 h-4 sm:w-5 sm:h-5" />}
+                gradient="from-pink-500 to-orange-500"
+                delay={300}
+              />
+              <StatBadge
+                label="Technologies"
+                value="20+"
+                icon={<Layers className="w-4 h-4 sm:w-5 sm:h-5" />}
+                gradient="from-orange-500 to-red-500"
+                delay={400}
+              />
+            </div>
+
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
               <button
-                onClick={() => scrollToSection('#about')}
+                onClick={handleViewResume}
+                data-cursor-hover
                 className="group bg-gradient-to-r from-cyan-500 to-purple-500 px-8 py-4 rounded-lg text-white font-semibold hover:from-cyan-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <Eye size={20} />
@@ -121,6 +209,7 @@ const Hero = () => {
               </button>
               <button
                 onClick={handleDownloadCV}
+                data-cursor-hover
                 className="group border-2 border-cyan-400 px-8 py-4 rounded-lg text-cyan-400 font-semibold hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <Download size={20} />
@@ -128,6 +217,7 @@ const Hero = () => {
               </button>
               <button
                 onClick={handleHireMe}
+                data-cursor-hover
                 className="group border-2 border-purple-400 px-8 py-4 rounded-lg text-purple-400 font-semibold hover:bg-purple-400 hover:text-slate-900 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <MessageSquare size={20} />
@@ -140,6 +230,7 @@ const Hero = () => {
                 href="https://github.com/camelia409"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-cursor-hover
                 className="text-gray-400 hover:text-cyan-400 transition-all duration-300 transform hover:scale-125"
               >
                 <Github size={28} />
@@ -148,12 +239,14 @@ const Hero = () => {
                  href="https://linkedin.com/in/abinandida-r-377128258"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-cursor-hover
                 className="text-gray-400 hover:text-cyan-400 transition-all duration-300 transform hover:scale-125"
               >
                 <Linkedin size={28} />
               </a>
               <a
                 href="mailto:abinandida4@gmail.com"
+                data-cursor-hover
                 className="text-gray-400 hover:text-cyan-400 transition-all duration-300 transform hover:scale-125"
               >
                 <Mail size={28} />

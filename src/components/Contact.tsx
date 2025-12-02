@@ -34,9 +34,8 @@ const Contact = () => {
   };
 
   const handleDownloadResume = () => {
-    // This would generate a PDF from resume data
     const link = document.createElement('a');
-    link.href = '/ProfessionalResume.pdf';
+    link.href = '/ProffesionalResume.pdf';
     link.download = 'Abinandida_R_Resume.pdf';
     link.click();
   };
