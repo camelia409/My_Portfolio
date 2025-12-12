@@ -8,10 +8,10 @@ const Achievements = () => {
   const achievements = [
     {
       title: 'Smart India Hackathon 2025',
-      subtitle: 'NTRO Finalist',
+      subtitle: 'NTRO Winner',
       date: '2025',
-      description: 'Selected as finalist in the prestigious Smart India Hackathon 2025, National Technical Research Organisation (NTRO) category.',
-      gradient: 'from-blue-500 to-cyan-500'
+      description: 'Winner of the prestigious Smart India Hackathon 2025 in the National Technical Research Organisation (NTRO) category.',
+      gradient: 'from-yellow-500 via-orange-500 to-red-500'
     },
     {
       title: 'AsterHacks 2025',
@@ -78,35 +78,45 @@ const Achievements = () => {
                 key={index}
                 ref={(el) => (itemRefs.current[index] = el)}
                 data-index={index}
-                className={`group bg-slate-800/50 rounded-xl border border-slate-700/50 overflow-hidden hover:border-cyan-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${
-                  visibleItems.includes(index)
+                className={`group relative bg-slate-800/50 backdrop-blur-sm rounded-xl border overflow-hidden transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${visibleItems.includes(index)
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
-                }`}
+                  } ${achievement.title.includes('Winner') || achievement.subtitle.includes('Winner')
+                    ? 'border-yellow-500/50 shadow-[0_0_30px_rgba(234,179,8,0.2)]'
+                    : 'border-slate-700/50 hover:border-cyan-500/50'
+                  }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
+                {/* Winner Glow Effect */}
+                {(achievement.title.includes('Winner') || achievement.subtitle.includes('Winner')) && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 animate-pulse pointer-events-none" />
+                )}
+
                 <div className={`h-2 bg-gradient-to-r ${achievement.gradient}`}></div>
-                
-                <div className="p-6">
+
+                <div className="p-6 relative z-10">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center space-x-3 flex-1">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${achievement.gradient} group-hover:scale-110 transition-transform duration-300`}>
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${achievement.gradient} group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                         <Trophy className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
                           {achievement.title}
                         </h3>
-                        <p className="text-cyan-400 font-semibold mt-1">{achievement.subtitle}</p>
+                        <p className={`font-semibold mt-1 ${achievement.subtitle.includes('Winner')
+                            ? 'text-yellow-400'
+                            : 'text-cyan-400'
+                          }`}>{achievement.subtitle}</p>
                       </div>
                     </div>
-                    <div className="flex items-center text-gray-400 text-sm ml-4">
-                      <Calendar size={16} className="mr-1" />
+                    <div className="flex items-center text-gray-400 text-sm ml-4 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-700">
+                      <Calendar size={14} className="mr-1.5" />
                       {achievement.date}
                     </div>
                   </div>
 
-                  <p className="text-gray-300 leading-relaxed text-sm">
+                  <p className="text-gray-300 leading-relaxed text-sm border-l-2 border-slate-700 pl-4">
                     {achievement.description}
                   </p>
                 </div>

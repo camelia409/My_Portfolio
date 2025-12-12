@@ -12,7 +12,7 @@ const Hero = () => {
   useEffect(() => {
     const currentTitle = titles[currentIndex];
     let charIndex = 0;
-    
+
     const typeInterval = setInterval(() => {
       if (charIndex <= currentTitle.length) {
         setDisplayText(currentTitle.slice(0, charIndex));
@@ -33,12 +33,12 @@ const Hero = () => {
   };
 
   const handleViewResume = () => {
-    window.open('/ProffesionalResume.pdf', '_blank');
+    window.open('/ProfessionalResume.pdf', '_blank');
   };
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/ProffesionalResume.pdf';
+    link.href = '/ProfessionalResume.pdf';
     link.download = 'Abinandida_R_Resume.pdf';
     link.click();
   };
@@ -52,7 +52,7 @@ const Hero = () => {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"></div>
-        
+
         {/* Anime-style Grid Background */}
         <div className="absolute inset-0 opacity-20 parallax-layer" style={{
           backgroundImage: `
@@ -62,10 +62,10 @@ const Hero = () => {
           backgroundSize: '50px 50px',
           transform: 'translateZ(-1px) scale(1.1)'
         }}></div>
-        
+
         {/* Neural Network Animation */}
         <NeuralNetwork nodeCount={40} connectionCount={60} />
-        
+
         {/* Data Flow Particles */}
         <DataFlow particleCount={80} />
 
@@ -120,7 +120,7 @@ const Hero = () => {
                 {/* Animated Ring */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 opacity-75 animate-spin-slow" style={{ width: '280px', height: '280px', margin: '-8px' }}></div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 opacity-50 animate-spin-reverse-slow" style={{ width: '280px', height: '280px', margin: '-8px' }}></div>
-                
+
                 <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gradient-to-r from-cyan-400 to-purple-400 shadow-2xl ring-4 ring-cyan-400/50 group-hover:ring-purple-400/50 transition-all duration-300">
                   <img
                     src="/me.jpg"
@@ -129,7 +129,7 @@ const Hero = () => {
                   />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 to-purple-400/20 animate-pulse"></div>
                 </div>
-                
+
                 {/* Floating Orbs */}
                 <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full blur-xl opacity-60 animate-float-orbit"></div>
                 <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-xl opacity-60 animate-float-orbit-reverse"></div>
@@ -144,13 +144,13 @@ const Hero = () => {
                 Abinandida R
               </span>
             </h1>
-            
+
             <div className="text-2xl md:text-4xl text-gray-300 mb-4 h-16 flex items-center justify-center md:justify-start">
               <span className="border-r-2 border-cyan-400 pr-2 animate-pulse min-w-[300px] text-left">
                 {displayText}
               </span>
             </div>
-            
+
             <p className="text-lg md:text-xl text-gray-400 mb-4 max-w-3xl">
               Final-year B.Tech AI & Data Science student at Anna University, Coimbatore, India
             </p>
@@ -236,7 +236,7 @@ const Hero = () => {
                 <Github size={28} />
               </a>
               <a
-                 href="https://linkedin.com/in/abinandida-r-377128258"
+                href="https://linkedin.com/in/abinandida-r-377128258"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor-hover
@@ -257,8 +257,8 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <button 
-          onClick={() => scrollToSection('#about')} 
+        <button
+          onClick={() => scrollToSection('#about')}
           className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
         >
           <ChevronDown size={32} />

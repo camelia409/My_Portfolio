@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Download } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, MapPin, Send, Github, Linkedin, MessageCircle, Download } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,21 +21,21 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     const mailtoLink = `mailto:abinandida4@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
     window.location.href = mailtoLink;
-    
+
     setIsSubmitting(false);
   };
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/ProffesionalResume.pdf';
+    link.href = '/ProfessionalResume.pdf';
     link.download = 'Abinandida_R_Resume.pdf';
     link.click();
   };
@@ -86,16 +86,16 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-20 relative">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-gradient">
                 Get In Touch
               </span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mb-8 rounded-full"></div>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               I'm always open to discussing new opportunities, collaborations, or just having a chat about AI and technology. Let's connect!
             </p>
@@ -104,12 +104,12 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
-              <div>
+              <div className="glass-panel p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-center space-x-4 group">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${info.gradient} group-hover:scale-110 transition-transform duration-300`}>
+                    <div key={index} className="flex items-center space-x-4 group p-4 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${info.gradient} group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                         <div className="text-white">{info.icon}</div>
                       </div>
                       <div>
@@ -117,7 +117,7 @@ const Contact = () => {
                         {info.link ? (
                           <a
                             href={info.link}
-                            className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                            className="text-gray-400 hover:text-cyan-400 transition-colors duration-200 block"
                           >
                             {info.value}
                           </a>
@@ -130,7 +130,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div>
+              <div className="glass-panel p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold text-white mb-6">Follow Me</h3>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
@@ -139,7 +139,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 rounded-lg bg-gradient-to-r ${social.gradient} text-white hover:scale-110 transition-transform duration-200`}
+                      className={`p-4 rounded-xl bg-gradient-to-r ${social.gradient} text-white hover:scale-110 hover:shadow-lg transition-all duration-300`}
                       title={social.name}
                     >
                       {social.icon}
@@ -148,19 +148,19 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700/50">
+              <div className="glass-panel p-8 rounded-2xl">
                 <h4 className="text-xl font-bold text-white mb-4">Quick Actions</h4>
-                <div className="space-y-3">
+                <div className="grid grid-cols-2 gap-4">
                   <button
                     onClick={handleDownloadResume}
-                    className="flex items-center space-x-2 w-full bg-gradient-to-r from-cyan-500 to-purple-500 px-4 py-3 rounded-lg text-white font-semibold hover:from-cyan-600 hover:to-purple-600 transition-all duration-200 transform hover:scale-105"
+                    className="flex items-center justify-center space-x-2 w-full bg-gradient-to-r from-cyan-500 to-purple-500 px-4 py-3 rounded-xl text-white font-semibold hover:from-cyan-600 hover:to-purple-600 transition-all duration-200 shadow-lg hover:shadow-cyan-500/25"
                   >
                     <Download size={20} />
-                    <span>Download Resume</span>
+                    <span>Resume</span>
                   </button>
                   <a
                     href="mailto:abinandida4@gmail.com?subject=Job Opportunity"
-                    className="flex items-center space-x-2 w-full border-2 border-cyan-400 px-4 py-3 rounded-lg text-cyan-400 font-semibold hover:bg-cyan-400 hover:text-slate-900 transition-all duration-200 text-center justify-center"
+                    className="flex items-center justify-center space-x-2 w-full border border-cyan-500/50 bg-cyan-500/10 px-4 py-3 rounded-xl text-cyan-400 font-semibold hover:bg-cyan-500/20 transition-all duration-200"
                   >
                     <MessageCircle size={20} />
                     <span>Hire Me</span>
@@ -170,12 +170,12 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-slate-800/50 p-8 rounded-xl border border-slate-700/50">
+            <div className="glass-panel p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-300 font-medium mb-2">
+                    <label htmlFor="name" className="block text-gray-300 font-medium mb-2 text-sm uppercase tracking-wider">
                       Name
                     </label>
                     <input
@@ -185,12 +185,12 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none transition-colors duration-200"
+                      className="glass-input w-full px-4 py-3 rounded-xl outline-none"
                       placeholder="Your Name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-300 font-medium mb-2">
+                    <label htmlFor="email" className="block text-gray-300 font-medium mb-2 text-sm uppercase tracking-wider">
                       Email
                     </label>
                     <input
@@ -200,14 +200,14 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none transition-colors duration-200"
-                      placeholder="your.email@example.com"
+                      className="glass-input w-full px-4 py-3 rounded-xl outline-none"
+                      placeholder="your@email.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-gray-300 font-medium mb-2">
+                  <label htmlFor="subject" className="block text-gray-300 font-medium mb-2 text-sm uppercase tracking-wider">
                     Subject
                   </label>
                   <input
@@ -217,13 +217,13 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none transition-colors duration-200"
-                    placeholder="What's this about?"
+                    className="glass-input w-full px-4 py-3 rounded-xl outline-none"
+                    placeholder="Project Inquiry"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-gray-300 font-medium mb-2">
+                  <label htmlFor="message" className="block text-gray-300 font-medium mb-2 text-sm uppercase tracking-wider">
                     Message
                   </label>
                   <textarea
@@ -233,15 +233,15 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none transition-colors duration-200 resize-none"
-                    placeholder="Tell me about your project or opportunity..."
+                    className="glass-input w-full px-4 py-3 rounded-xl outline-none resize-none"
+                    placeholder="Tell me about your project..."
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3 rounded-lg text-white font-semibold hover:from-cyan-600 hover:to-purple-600 transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-4 rounded-xl text-white font-bold text-lg hover:from-cyan-400 hover:to-purple-500 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                 >
                   <Send size={20} />
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
